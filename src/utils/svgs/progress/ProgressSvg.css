@@ -1,0 +1,23 @@
+
+.progressbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+}
+
+
+.circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 2rem;
+    animation: anim 500ms linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        stroke-dashoffset: 4.5; /* 450 - 450 * percentage ej 0.99 .70 */
+    }
+}
+

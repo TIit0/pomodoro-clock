@@ -1,0 +1,35 @@
+:root {
+    --red: #f54e4e;
+    --green: #4aec8c;
+}
+
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(21, 16, 49);
+}

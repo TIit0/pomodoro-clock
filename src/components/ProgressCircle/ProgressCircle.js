@@ -4,6 +4,7 @@ import PauseButton from "../PauseButton/PauseButton";
 import CogButton from "../CogButton/CogButton";
 import { useSettings } from "../../utils/functions/timeContext";
 import { useState, useEffect, useRef } from "react"
+import alarm from "../../utils/data/alarm.wav"
 
 
 export default function ProgressCircle() {
@@ -56,14 +57,13 @@ export default function ProgressCircle() {
             if (isPausedRef.current) return;
 
             if (secondsLeftRef.current === 0) {
-                const sound = window.document.querySelector("#audio");
-                console.log(sound)
-                sound.play()
+                const audio = new Audio(alarm);
+                audio.play()
                 return switchMode();
             }
 
             tick();
-        }, 10);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, [allContext]);
@@ -115,9 +115,8 @@ const color = {color: (mode === "focus") ? "#32376e" : "red"}
                 <CogButton />
                 Settings
             </div>
-            <audio
-            id="audio"
-            src="../../utils/data/alarm.wav" />
+            <audio id="audio"
+            src="../../utils/data" />
         </>
 
     );

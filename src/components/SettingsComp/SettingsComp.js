@@ -12,7 +12,7 @@ export default function SettingsComp() {
     console.log(focusMinutes, breakMinutes)
     return (
         <div className="settings__container">
-            <label htmlFor="focus">Focus Time: {`${focusMinutes} min`}</label>
+            <label htmlFor="focus">Focus Time: <span>{`${focusMinutes} min`}</span></label>
             <ReactSlider
                 id="focus"
                 className="slider"
@@ -23,7 +23,7 @@ export default function SettingsComp() {
                 min={1}
                 max={180} />
 
-            <label htmlFor="break">Break Time: {`${breakMinutes} min`}</label>
+            <label htmlFor="break">Break Time: <span>{`${breakMinutes} min`}</span></label>
             <ReactSlider
                 id="break"
                 className="slider green"

@@ -18,9 +18,9 @@ export default function ProgressCircle() {
     const [mode, setMode] = useState("break"); // focus/break/null
     const [secondsLeft, setSecondsLeft] = useState(0);
 
-    const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
     const modeRef = useRef(mode);
+    const secondsLeftRef = useRef(secondsLeft);
 
 
 
@@ -63,7 +63,7 @@ export default function ProgressCircle() {
             }
 
             tick();
-        }, 1000);
+        }, 10);
 
         return () => clearInterval(interval);
     }, [allContext]);
@@ -78,12 +78,12 @@ export default function ProgressCircle() {
 
     const fillColor = (mode === "focus") ? {
         background: `conic-gradient(
-    #32376e ${percentage * 3.6}deg,
-    #CADCFF ${percentage * 3.6}deg
+    #7177b1 ${percentage * 3.6}deg,
+    #ffffff ${percentage * 3.6}deg
 )`} : {
         background: `conic-gradient(
-#4D5BF9 ${percentage * 3.6}deg,
-#CADCFF ${percentage * 3.6}deg
+#55c79d ${percentage * 3.6}deg,
+#ffffff ${percentage * 3.6}deg
 )`};
 
 function handleClick() {
@@ -96,13 +96,13 @@ function handleClick() {
     }
 }
 
-const color = {color: (mode === "focus") ? "#32376e" : "red"}
+
 
 
     return (
         <>
             <div className="circular-progress" style={fillColor}>
-                <div className="valueContainer" style={color}>
+                <div className="valueContainer">
                     {`${minutes}: ${seconds < 10 ? "0" + seconds : seconds}`}
                 </div>
             </div>

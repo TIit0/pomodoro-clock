@@ -63,7 +63,7 @@ export default function ProgressCircle() {
             }
 
             tick();
-        }, 10);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, [allContext]);

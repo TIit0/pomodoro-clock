@@ -11,7 +11,7 @@ export default function ProgressCircle() {
 
     const allContext = useSettings();
 
-    console.log(allContext.breakMinutes, allContext.focusMinutes)
+    
 
     const [isPaused, setIsPaused] = useState(true);
     const [mode, setMode] = useState("break"); // focus/break/null
@@ -52,16 +52,17 @@ export default function ProgressCircle() {
 
     useEffect(() => {
         initTimer();
-
         const interval = setInterval(() => {
             if (isPausedRef.current) return;
 
             if (secondsLeftRef.current === 0) {
+                const sound = window.document.querySelector("#audio");
+                console.log(sound)
+                sound.play()
                 return switchMode();
             }
 
             tick();
-
         }, 10);
 
         return () => clearInterval(interval);
@@ -85,6 +86,16 @@ export default function ProgressCircle() {
 #CADCFF ${percentage * 3.6}deg
 )`};
 
+function handleClick() {
+    if (isPaused) {
+        setIsPaused(false)
+        isPausedRef.current = false;
+    } else {
+        setIsPaused(true)
+        isPausedRef.current = true;
+    }
+}
+
 const color = {color: (mode === "focus") ? "#32376e" : "red"}
 
 
@@ -95,15 +106,7 @@ const color = {color: (mode === "focus") ? "#32376e" : "red"}
                     {`${minutes}: ${seconds < 10 ? "0" + seconds : seconds}`}
                 </div>
             </div>
-            <div className="TimeButton__container" onClick={() => {
-                if (isPaused) {
-                    setIsPaused(false)
-                    isPausedRef.current = false;
-                } else {
-                    setIsPaused(true)
-                    isPausedRef.current = true;
-                }
-            }}>
+            <div className="TimeButton__container" onClick={handleClick}>
                 {isPaused ? <PlayButton /> : <PauseButton />}
             </div>
             <div
@@ -112,6 +115,9 @@ const color = {color: (mode === "focus") ? "#32376e" : "red"}
                 <CogButton />
                 Settings
             </div>
+            <audio
+            id="audio"
+            src="../../utils/data/alarm.wav" />
         </>
 
     );

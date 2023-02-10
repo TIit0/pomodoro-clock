@@ -14,8 +14,8 @@ export function useShowSettings() {
 }
 
 export function SettingsProvider({ children }) {
-    const [focusMinutes, setFocusMinutes] = useState(45);
-    const [breakMinutes, setBreakMinutes] = useState(15);
+    const [focusMinutes, setFocusMinutes] = useState(50);
+    const [breakMinutes, setBreakMinutes] = useState(10);
     const [isShowSettings, setIsShowSettings] = useState(false);
     const [isPaused, setIsPaused] = useState(true);
 

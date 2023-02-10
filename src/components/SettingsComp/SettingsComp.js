@@ -9,7 +9,7 @@ export default function SettingsComp() {
         setFocusMinutes, setBreakMinutes,
         setIsShowSettings} = useSettings();
 
-    console.log(focusMinutes, breakMinutes)
+
     return (
         <div className="settings__container">
             <label htmlFor="focus">Focus Time: <span>{`${focusMinutes} min`}</span></label>

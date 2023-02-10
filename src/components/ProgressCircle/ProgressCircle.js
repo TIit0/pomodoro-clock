@@ -32,7 +32,6 @@ export default function ProgressCircle() {
                 allContext.focusMinutes :
                 allContext.breakMinutes
         ) * 60;
-        console.log(nextSeconds)
 
 
         setMode(nextMode);
@@ -70,11 +69,13 @@ export default function ProgressCircle() {
 
     const totalSeconds = (mode === "focus") ?
         allContext.focusMinutes * 60 :
-        allContext.breakMinutes * 60;
+        allContext.breakMinutes * 60 ;
 
     const percentage = Math.round(secondsLeft / totalSeconds * 100);
     const minutes = Math.floor(secondsLeft / 60);
     const seconds = secondsLeft % 60;
+
+    document.title = `Pomodoro ${minutes}: ${seconds < 10 ? `0${seconds}` : seconds}`
 
     const fillColor = (mode === "focus") ? {
         background: `conic-gradient(
@@ -88,22 +89,20 @@ export default function ProgressCircle() {
 
 function handleClick() {
     if (isPaused) {
-        setIsPaused(false)
         isPausedRef.current = false;
+        setIsPaused(false)
     } else {
-        setIsPaused(true)
         isPausedRef.current = true;
+        setIsPaused(true)
     }
 }
-
-
 
 
     return (
         <>
             <div className="circular-progress" style={fillColor}>
                 <div className="valueContainer">
-                    {`${minutes}: ${seconds < 10 ? "0" + seconds : seconds}`}
+                    {`${minutes}: ${seconds < 10 ? `0${seconds}` : seconds}`}
                 </div>
             </div>
             <div className="TimeButton__container" onClick={handleClick}>

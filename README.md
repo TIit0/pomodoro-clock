@@ -19,5 +19,5 @@ First and foremost, how to manage time in JavaScript.
 - This was a little harder than it may seem: an analogy that I like is thinking that I was working with a hand watch or an engine. I had all these moving parts that I needed to make sure would work with each other at the precise moment they were told to without colliding or interfering. It did take a while to get the hang of it. I ended up making a style object that would update every second with the state to make that progress circle and made sure it would not lose progress when paused or resumed.
 
 4. Polishing.
-This was just going back, fixing bugs, and adding essential stuff. I realized it was a bit useless to have a timer with no sound because it would not let you focus on what you were doing if you had to check on it every once in a while. So, I added a sound.
+This was just going back, fixing bugs, and adding essential stuff. I realized it was a bit useless to have a timer with no sound because it would not let you focus on what you were doing if you had to check on it every once in a while. So, I added a sound and updated the tittle in case you want to peek at the time in tab without losing focus.
  
